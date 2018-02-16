@@ -28,8 +28,8 @@ class FrontController extends Controller
 
         $em=$this->getDoctrine()
         ->getManager();
-        $searchs=$em->getRepository('sntimmoBundle:Bien')->findAll();
-        if($request->isMethod("POST"))
+        $searchs=$em->getRepository('AKImmobilierBundle:Bien')->findAll();
+        // if($request->isMethod("POST"))
         {
             
         }
