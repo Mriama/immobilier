@@ -1,0 +1,75 @@
+<?php
+
+namespace AK\ImmobilierBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Localite
+ *
+ * @ORM\Table(name="localite")
+ * @ORM\Entity(repositoryClass="AK\ImmobilierBundle\Repository\LocaliteRepository")
+ */
+class Localite
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomlocalite", type="string", length=100)
+     */
+    private $nomlocalite;
+       /**
+
+   * @ORM\OneToMany(targetEntity = "AK\ImmobilierBundle\Entity\Bien", mappedBy = "localite")
+   */
+
+  private $biens;
+
+
+  // …
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nomlocalite
+     *
+     * @param string $nomlocalite
+     *
+     * @return Localite
+     */
+    public function setNomlocalite($nomlocalite)
+    {
+        $this->nomlocalite = $nomlocalite;
+
+        return $this;
+    }
+
+    /**
+     * Get nomlocalite
+     *
+     * @return string
+     */
+    public function getNomlocalite()
+    {
+        return $this->nomlocalite;
+    }
+}
+

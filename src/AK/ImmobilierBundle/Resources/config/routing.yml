@@ -1,0 +1,12 @@
+ak_immobilier_homepage:
+    path:     /
+    defaults: { _controller: AKImmobilierBundle:Default:index }
+
+search_bien:
+    path:     /bien/search
+    defaults: { _controller: "AKImmobilierBundle:Front:searchBien" }
+
+reserve_bien:
+    path:     /bien/reservation
+    defaults: { _controller: "AKImmobilierBundle:Front:reserveBien" }
+    
