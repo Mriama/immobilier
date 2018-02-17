@@ -26,13 +26,18 @@ class FrontController extends Controller
     public function searchBienAction()
     {
 
-        $em=$this->getDoctrine()
+         $em=$this->getDoctrine()
         ->getManager();
         $searchs=$em->getRepository('AKImmobilierBundle:Bien')->findAll();
-        // if($request->isMethod("POST"))
+        if($request->isMethod("POST"))
         {
-            
+        
+            $localite=$em->getRepository('AKImmobilierBundle:Localite')->findBy(array('localite'=>$localite));
+            $typebien=$em->getRepository('AKImmobilierBundle:Typebien')->findBy(array('typeBien'=>$typebien));
+            $searchs=$em->getRepository('AKImmobilierBundle:Bien')->findBy(array('localite'=>$localite));
+
         }
+
 
         return $this->render('AKImmobilierBundle:Front:search_bien.html.twig', array(
             // ...
