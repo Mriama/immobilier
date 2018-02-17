@@ -25,7 +25,7 @@ class FrontController extends Controller
      */
     public function searchBienAction()
     {
-
+        $fine= new Bien();
          $em=$this->getDoctrine()
         ->getManager();
         $searchs=$em->getRepository('AKImmobilierBundle:Bien')->findAll();
@@ -34,13 +34,12 @@ class FrontController extends Controller
         
             $localite=$em->getRepository('AKImmobilierBundle:Localite')->findBy(array('localite'=>$localite));
             $typebien=$em->getRepository('AKImmobilierBundle:Typebien')->findBy(array('typeBien'=>$typebien));
-            $searchs=$em->getRepository('AKImmobilierBundle:Bien')->findBy(array('localite'=>$localite));
+            $searchs=$em->getRepository('AKImmobilierBundle:Bien')->findBy(array('localite'=>$localite , 'typebien'=>$typebien));
 
         }
 
 
-        return $this->render('AKImmobilierBundle:Front:search_bien.html.twig', array(
-            // ...
+        return $this->render('AKImmobilierBundle:Front:search_bien.html.twig', array('bien'=>$searchs
         ));
     }
 
